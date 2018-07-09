@@ -3,19 +3,21 @@ package ru.stqa.pft.sandbox;
 public class Point {
     public double x;
     public double y;
+    public double n;
 
     public static void main(String [] args) {
-    Point p1 = new Point(2,3);
-    Point p2 = new Point(1,2);
+    Point p1 = new Point(2,3,1);
+    Point p2 = new Point(1,2,2);
     distance(p1, p2);
 
     }
 
-    public Point(double x, double y) {
+    public Point(double x, double y, int n ) {
         this.x=x;
         this.y=y;
-        System.out.println("p1 это точка с координатами"+" "+ x + " и " + y);
-        System.out.println("p2 это точка с координатами"+" "+ x + " и " + y);
+        this.n=n;
+        System.out.println("p" +n+ " это точка с координатами"+" "+ x + " и " + y);
+
     }
 
     public static double distance(Point p1, Point p2){
