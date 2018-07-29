@@ -17,7 +17,8 @@ public class GroupCreationTests {
     public void setUp() throws Exception {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/group.php");
+        gotoGroupPage();
+        //wd.get("http://localhost/addressbook/group.php");
         login("admin", "secret");
     }
 
