@@ -13,7 +13,7 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
 
       public void init() {
-        wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+        wd = new FirefoxDriver(new FirefoxOptions().setLegacy(false));
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         gotoHomePage();
         contactHelper = new ContactHelper(wd);
@@ -24,7 +24,7 @@ public class ApplicationManager {
         }
 
     public void gotoHomePage() {
-        wd.get("http://localhost/addressbook/");
+        wd.get("http://addressbook.slashedzero.com:8082/");
     }
 
     public void stop() {
