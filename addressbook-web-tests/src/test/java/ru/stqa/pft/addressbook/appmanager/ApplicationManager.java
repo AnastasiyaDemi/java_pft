@@ -29,17 +29,13 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        gotoHomePage();
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        wd.get("http://addressbook.slashedzero.com:8082/");
         contactHelper = new ContactHelper(wd);
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
-    }
-
-    public void gotoHomePage() {
-        wd.get("http://addressbook.slashedzero.com:8082/");
     }
 
     public void stop() {
