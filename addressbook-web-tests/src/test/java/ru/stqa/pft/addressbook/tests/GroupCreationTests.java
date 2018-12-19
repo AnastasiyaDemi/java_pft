@@ -14,18 +14,18 @@ public class GroupCreationTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions () {
-        app.getNavigationHelper().gotoGroupPage();
+        app.goTo().groupPage();
     }
 
         @Test
     public void testGroupCreation() {
-        List<GroupData> before=app.getGroupHelper().getGroupList();
-        GroupData group = new GroupData("test1", null, "test3");
-        app.getGroupHelper().createGroup(group);
-        List<GroupData> after=app.getGroupHelper().getGroupList();
+        List<GroupData> before=app.group().list();
+        GroupData group = new GroupData().withName("test1").withFooter("test3");
+        app.group().create(group);
+        List<GroupData> after=app.group().list();
         assertEquals(after.size() ,before.size()+1);
 
-        group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        group.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         before.add(group);
         Assert.assertEquals(new HashSet<Object>(before), new  HashSet<Object>(after));
 

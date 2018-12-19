@@ -71,13 +71,18 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
 
     }
-    public void modifyContact(List<ContactData> before, int index, ContactData contact) {
+    public void modify(List<ContactData> before, int index, ContactData contact) {
         selectContact(index);
         initContactModification(before.size() +1);
         fillContactForm(contact, false);
         submitContactModification();
         returnToHomePage();
     }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
+     }
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
@@ -87,7 +92,7 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> List() {
         List<ContactData> contacts = new ArrayList<>();
         WebElement table = wd.findElement(By.cssSelector("table#maintable"));
         List<WebElement> rows = table.findElements(By.tagName("tr"));
