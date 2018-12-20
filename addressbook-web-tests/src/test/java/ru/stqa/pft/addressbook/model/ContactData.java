@@ -87,6 +87,11 @@ public class ContactData {
         this.id = id;
     }
 
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
