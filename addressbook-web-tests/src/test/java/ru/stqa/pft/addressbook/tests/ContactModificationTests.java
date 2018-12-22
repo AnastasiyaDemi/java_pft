@@ -19,15 +19,14 @@ public class ContactModificationTests extends TestBase {
         }
         app.goTo().HomePage();
         if (!app.contact().isThereAContact()) {
-            app.contact().createContact(new ContactData(
-                    "first name",
-                    "last name",
-                    "nik",
-                    "Address",
-                    "+79269998877",
-                    "+79031113366",
-                    "email@mail.ru",
-                    "[none]"));
+            app.contact().createContact(new ContactData()
+                    .withFirstName("Mod first name")
+                    .withLastName("Mod first name")
+                    .withNickName("Mod nik")
+                    .withAddresse("Mod Address")
+                    .withMobilePhone("+379269998877")
+                    .withHomePhone("+379031113366")
+                    .withEmail("3email@mail.ru"));
         }
     }
 
@@ -35,15 +34,15 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
         Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
-        ContactData contact = new ContactData(modifiedContact.getId(),
-                "3first name",
-                "3last name",
-                "3nik",
-                "3Address",
-                "+379269998877",
-                "+379031113366",
-                "3email@mail.ru",
-                "[none]");
+        ContactData contact = new ContactData()
+                .withId(modifiedContact.getId())
+                .withFirstName("Mod first name")
+                .withLastName("Mod first name")
+                .withNickName("Mod nik")
+                .withAddresse("Mod Address")
+                .withMobilePhone("+379269998877")
+                .withHomePhone("+379031113366")
+                .withEmail("3email@mail.ru");
         app.contact().modify(contact);
         assertThat(app.contact().getContactCount(), equalTo(before.size()));
         Contacts after = app.contact().all();

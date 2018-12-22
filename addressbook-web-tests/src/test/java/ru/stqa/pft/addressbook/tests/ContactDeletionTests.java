@@ -18,15 +18,14 @@ public class ContactDeletionTests extends TestBase {
         }
         app.goTo().HomePage();
         if (!app.contact().isThereAContact()) {
-            app.contact().createContact(new ContactData(
-                    "first name",
-                    "last name",
-                    "nik",
-                    "Address",
-                    "+79269998877",
-                    "+79031113366",
-                    "email@mail.ru",
-                    "[none]"));
+            app.contact().createContact(new ContactData()
+                    .withFirstName("Mod first name")
+                    .withLastName("Mod first name")
+                    .withNickName("Mod nik")
+                    .withAddresse("Mod Address")
+                    .withMobilePhone("+379269998877")
+                    .withHomePhone("+379031113366")
+                    .withEmail("3email@mail.ru"));
         }
     }
 

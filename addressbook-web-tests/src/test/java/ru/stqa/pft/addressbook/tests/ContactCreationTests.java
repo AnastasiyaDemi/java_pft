@@ -23,15 +23,14 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testContactCreation() {
         Contacts before = app.contact().all();
-        ContactData contact = new ContactData(
-                "first name",
-                "last name",
-                "nik",
-                "Address",
-                "+79269998877",
-                "+79031113366",
-                "email@mail.ru",
-                "[none]");
+        ContactData contact = new ContactData()
+                .withFirstName("New first name")
+                .withLastName("New first name")
+                .withNickName("New nik")
+                .withAddresse("New Address")
+                .withMobilePhone("+379269998877")
+                .withHomePhone("+379031113366")
+                .withEmail("3email@mail.ru");
         app.contact().createContact(contact);
         assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
         Contacts after = app.contact().all();
