@@ -146,7 +146,7 @@ public class ContactHelper extends HelperBase {
             String firstName = cells.get(2).getText();
             String lastName = cells.get(1).getText();
             String address = cells.get(3).getText();
-            String email = cells.get(4).getText();
+            String allEmails = cells.get(4).getText();
             String allPhones = cells.get(5).getText();
             int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
             ContactData contact = new ContactData()
@@ -154,7 +154,7 @@ public class ContactHelper extends HelperBase {
                     .withFirstName(firstName)
                     .withLastName(lastName)
                     .withAddresse(address)
-                    .withEmail(email)
+                    .withAllEmails(allEmails)
                     .withAllPhones(allPhones);
             contactCache.add(contact);
         }
@@ -169,14 +169,23 @@ public class ContactHelper extends HelperBase {
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
-        wd.navigate().back();
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String email = wd.findElement(By.name("email")).getAttribute("value");
+        String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+        String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+
+        wd.navigate().back(); //????
         return new ContactData ()
                 .withId(contact.getId())
                 .withFirstName(firstname)
                 .withLastName(lastname)
                 .withHomePhone(home)
                 .withMobilePhone(mobile)
-                .withWorkPhone(work);
+                .withWorkPhone(work)
+                .withAddresse(address)
+                .withEmail(email)
+                .withEmail2(email2)
+                .withEmail3(email3);
     }
 
     private void initContactModificationByID(int id) {
