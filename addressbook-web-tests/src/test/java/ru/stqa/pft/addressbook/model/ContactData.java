@@ -59,11 +59,11 @@ public class ContactData {
     }
 
     public ContactData withGroup(String group) {
-        this.email = group;
+        this.group = group;
         return this;
     }
     public ContactData withWorkPhone(String workPhone) {
-        this.email = workPhone;
+        this.workPhone = workPhone;
         return this;
     }
 
