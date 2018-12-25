@@ -24,7 +24,7 @@ public class ContactDeletionTests extends TestBase {
                     .withNickName("Mod nik")
                     .withAddresse("Mod Address")
                     .withMobilePhone("+379269998877")
-                    .withHomePhone("+379031113366")
+                    .withHomePhone("+379531113366")
                     .withEmail("3email@mail.ru"));
         }
     }

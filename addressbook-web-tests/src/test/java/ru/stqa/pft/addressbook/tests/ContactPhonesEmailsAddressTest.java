@@ -27,7 +27,7 @@ public class ContactPhonesEmailsAddressTest extends TestBase {
                     .withNickName("Cr0 nik")
                     .withAddresse("Cr0 Address")
                     .withMobilePhone("+379269998877")
-                    .withHomePhone("+379131113366")
+                    .withHomePhone("+379531113366")
                     .withEmail("Cr0email@mail.ru"));
         }
     }

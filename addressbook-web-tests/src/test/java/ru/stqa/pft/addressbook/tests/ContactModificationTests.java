@@ -25,7 +25,7 @@ public class ContactModificationTests extends TestBase {
                     .withNickName("Mod nik")
                     .withAddresse("Mod Address")
                     .withMobilePhone("+379269998877")
-                    .withHomePhone("+379031113366")
+                    .withHomePhone("+379531113366")
                     .withEmail("3email@mail.ru"));
         }
     }
@@ -41,7 +41,7 @@ public class ContactModificationTests extends TestBase {
                 .withNickName("Mod nik")
                 .withAddresse("Mod Address")
                 .withMobilePhone("+379269998877")
-                .withHomePhone("+379031113366")
+                .withHomePhone("+379531113366")
                 .withEmail("3email@mail.ru");
         app.contact().modify(contact);
         assertThat(app.contact().getContactCount(), equalTo(before.size()));
