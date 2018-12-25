@@ -2,22 +2,31 @@
   {
     "firstName": "first name 0",
     "lastName": "last name 0",
+    "nickName": "New nik 0",
     "address": "test address 0",
-    "mobilePhone": "+678689908224 0",
-    "email": "e-mail0@mail.com"
+    "homePhone": "+379531113366 0",
+    "mobilePhone": "+379269998877 0",
+    "email": "e-mail0@mail.com",
+    "photoPath": "src/test/resources/cat.png"
   },
   {
     "firstName": "first name 1",
     "lastName": "last name 1",
+    "nickName": "New nik 1",
     "address": "test address 1",
-    "mobilePhone": "+678689908224 1",
-    "email": "e-mail1@mail.com"
+    "homePhone": "+379531113366 1",
+    "mobilePhone": "+379269998877 1",
+    "email": "e-mail1@mail.com",
+    "photoPath": "src/test/resources/cat.png"
   },
   {
     "firstName": "first name 2",
     "lastName": "last name 2",
+    "nickName": "New nik 2",
     "address": "test address 2",
-    "mobilePhone": "+678689908224 2",
-    "email": "e-mail2@mail.com"
+    "homePhone": "+379531113366 2",
+    "mobilePhone": "+379269998877 2",
+    "email": "e-mail2@mail.com",
+    "photoPath": "src/test/resources/cat.png"
   }
 ]

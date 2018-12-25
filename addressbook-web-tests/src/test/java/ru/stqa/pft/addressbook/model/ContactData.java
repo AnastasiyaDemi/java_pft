@@ -11,21 +11,30 @@ public class ContactData {
     private String firstName;
     @Expose
     private String lastName;
+    @Expose
     private String nickName;
     @Expose
     private String address;
+    @Expose
     private String homePhone;
     @Expose
     private String mobilePhone;
     @Expose
     private String email;
     private String group;
+    @Expose
     private String workPhone;
     private String allPhones;
     private String email2;
     private String email3;
     private String allEmails;
+    @Expose
+    private String photoPath;
     private File photo;
+
+    public String getPhotoPath() {
+        return photoPath;
+    }
 
     public File getPhoto() {
         return photo;
@@ -33,6 +42,11 @@ public class ContactData {
 
     public ContactData withPhoto(File photo) {
         this.photo = photo;
+        return this;
+    }
+
+    public ContactData withPhotoPath (String photoPath) {
+        this.photoPath = photoPath;
         return this;
     }
 
