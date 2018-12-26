@@ -7,7 +7,7 @@
     "homePhone": "+379531113366 0",
     "mobilePhone": "+379269998877 0",
     "email": "e-mail0@mail.com",
-    "photoPath": "src/test/resources/cat.png"
+    "photoPath": "src/test/resources/cat-0.png"
   },
   {
     "firstName": "first name 1",
@@ -17,7 +17,7 @@
     "homePhone": "+379531113366 1",
     "mobilePhone": "+379269998877 1",
     "email": "e-mail1@mail.com",
-    "photoPath": "src/test/resources/cat.png"
+    "photoPath": "src/test/resources/cat-1.png"
   },
   {
     "firstName": "first name 2",
@@ -27,6 +27,76 @@
     "homePhone": "+379531113366 2",
     "mobilePhone": "+379269998877 2",
     "email": "e-mail2@mail.com",
-    "photoPath": "src/test/resources/cat.png"
+    "photoPath": "src/test/resources/cat-2.png"
+  },
+  {
+    "firstName": "first name 3",
+    "lastName": "last name 3",
+    "nickName": "New nik 3",
+    "address": "test address 3",
+    "homePhone": "+379531113366 3",
+    "mobilePhone": "+379269998877 3",
+    "email": "e-mail3@mail.com",
+    "photoPath": "src/test/resources/cat-3.png"
+  },
+  {
+    "firstName": "first name 4",
+    "lastName": "last name 4",
+    "nickName": "New nik 4",
+    "address": "test address 4",
+    "homePhone": "+379531113366 4",
+    "mobilePhone": "+379269998877 4",
+    "email": "e-mail4@mail.com",
+    "photoPath": "src/test/resources/cat-4.png"
+  },
+  {
+    "firstName": "first name 5",
+    "lastName": "last name 5",
+    "nickName": "New nik 5",
+    "address": "test address 5",
+    "homePhone": "+379531113366 5",
+    "mobilePhone": "+379269998877 5",
+    "email": "e-mail5@mail.com",
+    "photoPath": "src/test/resources/cat-0.png"
+  },
+  {
+    "firstName": "first name 6",
+    "lastName": "last name 6",
+    "nickName": "New nik 6",
+    "address": "test address 6",
+    "homePhone": "+379531113366 6",
+    "mobilePhone": "+379269998877 6",
+    "email": "e-mail6@mail.com",
+    "photoPath": "src/test/resources/cat-1.png"
+  },
+  {
+    "firstName": "first name 7",
+    "lastName": "last name 7",
+    "nickName": "New nik 7",
+    "address": "test address 7",
+    "homePhone": "+379531113366 7",
+    "mobilePhone": "+379269998877 7",
+    "email": "e-mail7@mail.com",
+    "photoPath": "src/test/resources/cat-2.png"
+  },
+  {
+    "firstName": "first name 8",
+    "lastName": "last name 8",
+    "nickName": "New nik 8",
+    "address": "test address 8",
+    "homePhone": "+379531113366 8",
+    "mobilePhone": "+379269998877 8",
+    "email": "e-mail8@mail.com",
+    "photoPath": "src/test/resources/cat-3.png"
+  },
+  {
+    "firstName": "first name 9",
+    "lastName": "last name 9",
+    "nickName": "New nik 9",
+    "address": "test address 9",
+    "homePhone": "+379531113366 9",
+    "mobilePhone": "+379269998877 9",
+    "email": "e-mail9@mail.com",
+    "photoPath": "src/test/resources/cat-4.png"
   }
 ]

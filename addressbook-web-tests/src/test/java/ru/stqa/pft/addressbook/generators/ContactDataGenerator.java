@@ -16,6 +16,8 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
+    private final int CATS_TOTAL = 5;
+
     @Parameter(names = "-c", description = "Contact count")
     public int count;
 
@@ -60,8 +62,8 @@ public class ContactDataGenerator {
 
     private List<ContactData> generateContacts(int count) {
         List<ContactData> contacts = new ArrayList<ContactData>();
-        File photo = new File("src/test/resources/cat.png");
         for (int i = 0; i < count; i++) {
+            File photo = new File(String.format("src/test/resources/cat-%d.png", i % CATS_TOTAL));
             contacts.add(new ContactData()
                     .withFirstName(String.format("first name %d", i))
                     .withLastName(String.format("last name %d", i))
