@@ -42,7 +42,8 @@ public class ContactModificationTests extends TestBase {
                 .withAddresse("Mod Address")
                 .withMobilePhone("+379269998877")
                 .withHomePhone("+379531113366")
-                .withEmail("3email@mail.ru");
+                .withEmail("3email@mail.ru")
+                .withPhotoPath("src/test/resources/cat-4.png");
         app.contact().modify(contact);
         assertThat(app.contact().getContactCount(), equalTo(before.size()));
         Contacts after = app.contact().all();
