@@ -5,56 +5,88 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table (name = "addressbook")
+@Table(name = "addressbook")
 public class ContactData {
+
     @Id
-    @Column (name = "id")
+    @Column(name = "id")
     private int id;
+
     @Expose
-    @Column (name = "firstname")
+    @Column(name = "firstname")
     private String firstName;
+
     @Expose
-    @Column (name = "lastname")
+    @Column(name = "lastname")
     private String lastName;
+
     @Expose
-    @Column (name = "nickname")
+    @Column(name = "nickname")
     private String nickName;
+
     @Expose
-    @Column (name = "address")
+    @Column(name = "address")
     @Type(type = "text")
     private String address;
+
     @Expose
-    @Column (name = "home")
+    @Column(name = "home")
     @Type(type = "text")
     private String homePhone;
+
     @Expose
-    @Column (name = "mobile")
+    @Column(name = "mobile")
     @Type(type = "text")
     private String mobilePhone;
+
     @Expose
-    @Column (name = "email")
+    @Column(name = "email")
     @Type(type = "text")
     private String email;
-    @Transient
-    private String group;
+
     @Expose
-    @Column (name = "work")
+    @Column(name = "work")
     @Type(type = "text")
     private String workPhone;
+
     @Transient
     private String allPhones;
+
     @Transient
     private String email2;
+
     @Transient
     private String email3;
+
     @Transient
     private String allEmails;
+
     @Expose
     @Transient
     private String photoPath;
+
+    @ManyToMany(fetch = FetchType.EAGER)//Eager - извлекает как можно больше информации из базы за один заход
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    //joinColumns - указывает на объекты текущего класса - на контакты
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
+    @Transient
+    private String group;
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +108,7 @@ public class ContactData {
         return Objects.hash(id, firstName, lastName, address, homePhone, mobilePhone, email, workPhone);
     }
 
-    @Column (name = "photo")
+    @Column(name = "photo")
     @Type(type = "text")
     private String photo;
 
@@ -85,7 +117,7 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return new File (photo);
+        return new File(photo);
     }
 
     public ContactData withPhoto(File photo) {
@@ -93,7 +125,7 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withPhotoPath (String photoPath) {
+    public ContactData withPhotoPath(String photoPath) {
         this.photoPath = photoPath;
         return this;
     }
@@ -119,6 +151,7 @@ public class ContactData {
     public String getAllPhones() {
         return allPhones;
     }
+
     public String getAllEmails() {
         return allEmails;
     }
@@ -133,7 +166,7 @@ public class ContactData {
         return this;
     }
 
-    public ContactData(){
+    public ContactData() {
 
     }
 
@@ -141,6 +174,7 @@ public class ContactData {
         this.id = id;
         return this;
     }
+
     public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
@@ -177,16 +211,13 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
+
     public ContactData withWorkPhone(String workPhone) {
         this.workPhone = workPhone;
         return this;
     }
 
-    public ContactData(int id, String firstName, String lastName, String nickName, String address, String homePhone, String mobilePhone, String email, String group, String workPhone) {
+    public ContactData(int id, String firstName, String lastName, String nickName, String address, String homePhone, String mobilePhone, String email, Groups groups, String workPhone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -195,11 +226,11 @@ public class ContactData {
         this.homePhone = homePhone;
         this.mobilePhone = mobilePhone;
         this.email = email;
-        this.group = group;
+        this.groups = groups;
         this.workPhone = workPhone;
     }
 
-    public ContactData(String firstName, String lastName, String nickName, String address, String homePhone, String mobilePhone, String email, String group) {
+    public ContactData(String firstName, String lastName, String nickName, String address, String homePhone, String mobilePhone, String email, Groups groups) {
         this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -208,7 +239,7 @@ public class ContactData {
         this.homePhone = homePhone;
         this.mobilePhone = mobilePhone;
         this.email = email;
-        this.group = group;
+        this.groups = groups;
     }
 
     @Override
@@ -253,16 +284,21 @@ public class ContactData {
         return email;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
 
     public String getWorkPhone() {
         return workPhone;
     }
+
+    public ContactData withAdditionalGroup(GroupData group) {
+        this.groups.add(group);
+        return this;
+    }
+
 }

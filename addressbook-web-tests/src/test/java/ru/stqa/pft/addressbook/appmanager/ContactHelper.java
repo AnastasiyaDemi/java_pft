@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -35,10 +35,10 @@ public class ContactHelper extends HelperBase {
 
         if (creation) {
             Select select = new Select(wd.findElement(By.name("new_group")));
-            if (contactData.getGroup() == null){
-                select.selectByIndex(1);
-            } else {
-                select.selectByVisibleText(contactData.getGroup());
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                Groups groups = contactData.getGroups();
+                select.selectByVisibleText(groups.iterator().next().getName());
             }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -178,7 +178,7 @@ public class ContactHelper extends HelperBase {
         String email3 = wd.findElement(By.name("email3")).getAttribute("value");
 
         wd.navigate().back(); //????
-        return new ContactData ()
+        return new ContactData()
                 .withId(contact.getId())
                 .withFirstName(firstname)
                 .withLastName(lastname)
