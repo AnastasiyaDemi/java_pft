@@ -40,6 +40,7 @@ $g_db_username   = 'mantisdbuser';
 $g_db_password   = 'mantisdbpassword';
 $g_database_name = 'mantisdb';
 $g_db_type       = 'mysql';
+$g_signup_use_captcha = OFF;
 
 # --- Anonymous Access / Signup ---
 $g_allow_signup				= ON;
