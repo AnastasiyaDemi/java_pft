@@ -74,7 +74,7 @@ public class ApplicationManager {
         return dbHelper;
     }
 
-    public FtpHelper ftp () {
+    public FtpHelper ftp() {
         if (ftp == null) {
             ftp = new FtpHelper(this);
         }
@@ -103,7 +103,7 @@ public class ApplicationManager {
         return wd;
     }
 
-    public MailHelper mail () {
+    public MailHelper mail() {
         if (mailHelper == null) {
             mailHelper = new MailHelper(this);
         }
@@ -116,11 +116,12 @@ public class ApplicationManager {
         }
         return jamesHelper;
     }
- public  SoapHelper soap () {
+
+    public SoapHelper soap() {
         if (soapHelper == null) {
             soapHelper = new SoapHelper(this);
         }
         return soapHelper;
- }
+    }
 
 }
