@@ -14,7 +14,7 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests {
+public class RestAssuredTests {
 
     @Test
     public void testCreateIssue() throws IOException {
@@ -27,7 +27,7 @@ public class RestTests {
     }
 
     private Set<Issue> getIssues() throws IOException {
-        String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues.json"))
+        String json = getExecutor().execute(Request.Get("http://demo.bugify.com/api/issues.json"))
                 .returnContent().asString();
         JsonElement parsed = new JsonParser().parse(json);
         JsonElement issues = parsed.getAsJsonObject().get("issues");
@@ -41,7 +41,7 @@ public class RestTests {
 
     private int create(Issue issue) throws IOException {
         String json = getExecutor().execute(Request
-                .Post("http://bugify.stqa.ru/api/issues.json")
+                .Post("http://demo.bugify.com/api/issues.json")
                 .bodyForm(
                         new BasicNameValuePair("subject", issue.getSubject()),
                         new BasicNameValuePair("description", issue.getDescription())))
