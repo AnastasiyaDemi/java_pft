@@ -1,5 +1,7 @@
 package ru.stqa.pft.tests;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Objects;
 
 public class Issue {
@@ -7,6 +9,9 @@ public class Issue {
     private int id;
     private String subject;
     private String description;
+
+    @SerializedName("state_name")
+    private String status;
 
     public int getId() {
         return id;
@@ -20,6 +25,14 @@ public class Issue {
         return description;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public Issue withStatus(String status) {
+        this.status = status;
+        return this;
+    }
 
     public Issue withId(int id) {
         this.id = id;

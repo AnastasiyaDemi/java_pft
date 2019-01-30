@@ -8,6 +8,7 @@ import io.restassured.RestAssured;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
@@ -30,7 +31,7 @@ public class RestAssuredTests {
     }
 
     private Set<Issue> getIssues() {
-        String json = RestAssured.get("http://bugify.stqa.ru/api/issues.json").asString();
+        String json = RestAssured.get("http://bugify.stqa.ru/api/issues.json?limit=100").asString();
         JsonElement parsed = new JsonParser().parse(json);
         JsonElement issues = parsed.getAsJsonObject().get("issues");
         return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {}.getType());
@@ -46,11 +47,5 @@ public class RestAssuredTests {
         JsonElement parsed = new JsonParser().parse(json);
         return parsed.getAsJsonObject().get("issue_id").getAsInt();
     }
-/*
-    @Test
-    public void shouldNotRun() throws RemoteException, ServiceException, MalformedURLException {
-        skipIfNotFixed(1);
-        System.out.println("executed");
-    }*/
 
 }
