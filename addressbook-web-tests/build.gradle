@@ -54,5 +54,5 @@ task testGroups (type: Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 
-    //reports.html.enabled = false
+    reports.html.enabled = false
 }
