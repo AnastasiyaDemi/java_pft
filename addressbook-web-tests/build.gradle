@@ -39,6 +39,8 @@ task testContacts (type: Test) {
 task testGroups (type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
+
+        useDefaultListeners = true
     }
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"
@@ -52,4 +54,5 @@ task testGroups (type: Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 
+    //reports.html.enabled = false
 }
